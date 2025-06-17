@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WatchHumans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>WATCHHUMANS CONTROL CENTER</h1>
+  </header>
+
+  <main>
+    <div class="control-grid">
+      <div class="platform-selection">
+        <h3 class="section-heading">Select Platform</h3>
+        <div class="platform-options indented-options">
+          <label class="platform-checkbox"><input type="checkbox" name="platform" value="instagram" checked><i class="fab fa-instagram"></i> Instagram</label>
+          <label class="platform-checkbox"><input type="checkbox" name="platform" value="facebook" checked><i class="fab fa-facebook"></i> Facebook</label>
+          <label class="platform-checkbox"><input type="checkbox" name="platform" value="x" checked><i class="fab fa-twitter"></i> X</label>
+        </div>
+      </div>
+
+      <div class="power-toggle">
+        <div class="toggle-control">
+          <span>Off</span>
+          <label class="switch">
+            <input type="checkbox" id="powerToggle" />
+            <span class="slider round"></span>
+          </label>
+          <span>On</span>
+        </div>
+        <div class="bottom-buttons">
+            <a href="hashtag-overview.html" class="nav-button">Hashtag Overview</a>
+            <a href="captions-overview.html" class="nav-button">Captions Overview</a>
+        </div>
+      </div>
+    </div>
+
+    <label for="volume" class="section-heading">Change Headphones Volume</label>
+    <div class="volume-control">
+      <i class="fas fa-volume-down volume-icon"></i>
+      <input type="range" id="volume" min="0" max="100" />
+      <i class="fas fa-volume-up volume-icon"></i>
+    </div>
+
+    <div class="input-fields">
+      <div class="input-group">
+        <label for="hashtags" class="section-heading">Set new Hashtags</label>
+        <textarea id="hashtags" placeholder="Enter hashtags here. E.g. art, exhibit, commentary"></textarea>
+        <button onclick="sendHashtags()" class="input-button">Submit</button>
+      </div>
+      <div class="input-group">
+        <label for="textToPlay" class="section-heading">Add Text to Play</label>
+        <textarea id="textToPlay" placeholder="Enter custom message to play."></textarea>
+        <button onclick="sendText()" class="input-button">Submit</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

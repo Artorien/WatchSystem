@@ -1,0 +1,259 @@
+@font-face {
+  font-family: 'Akira';
+  src: url('./akira_expanded/Akira Expanded Demo.otf');
+}
+
+:root {
+  --primary-pink: #FDA5AE;
+  --secondary-pink: #cf878e;
+  --background-pink: #FBDCDC;
+  --heading-purple: #974860;
+  --heading-dark: #333;
+  --dull-pink: #e4abab;
+}
+
+body {
+  font-family: 'Barlow', Arial, sans-serif;
+  font-weight: 600;
+  background-color: white;
+  color: black;
+  padding: 20px 10%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--primary-pink);
+  padding-bottom: 15px;
+}
+
+header h1 {
+  font-family: 'Akira', 'Barlow', sans-serif;
+  font-size: 2.5rem;
+  margin: 2rem 0 0;
+  letter-spacing: 1px;
+  color: var(--heading-dark);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.section-heading {
+  color: var(--heading-purple);
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.control-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.platform-options {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.platform-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.platform-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-pink);
+}
+
+.platform-checkbox i {
+  font-size: 1.3rem;
+  width: 24px;
+}
+
+.indented-options {
+  padding-left: 1.5rem;
+}
+
+.power-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 20px;  
+}
+
+.toggle-control {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.toggle-control span {
+  font-weight: bold;
+  color: var(--primary-pink);
+  font-size: 1.2rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-pink);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-pink);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.volume-control {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background-color: var(--background-pink);
+  border-radius: 10px;
+}
+
+.volume-icon {
+  color: white;
+  font-size: 20px;
+}
+
+input[type="range"] {
+  flex-grow: 1;
+  -webkit-appearance: none;
+  height: 6px;
+  background: white;
+  border-radius: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--secondary-pink);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.input-fields {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+  gap: 20px;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 8px;
+  border: 1px solid var(--background-pink);
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  resize: none;
+  vertical-align: top;
+  line-height: 1.4em;
+}
+
+textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+
+.input-button {
+  background-color: var(--background-pink);
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  width: auto;
+  align-self: flex-end;
+  margin-top: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.input-button:hover {
+  background-color: var(--secondary-pink);
+}
+
+.bottom-buttons {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end;  
+  gap: 15px;
+}
+
+.nav-button {
+  background-color: var(--dull-pink);
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: var(--secondary-pink);
+}

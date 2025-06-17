@@ -1,0 +1,331 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.17 (Homebrew)
+-- Dumped by pg_dump version 17.0
+
+-- Started on 2025-05-06 15:34:13 CEST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 4 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: m1stakesequence
+--
+
+-- *not* creating schema, since initdb creates it
+
+
+ALTER SCHEMA public OWNER TO m1stakesequence;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 212 (class 1259 OID 16397)
+-- Name: flagged; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.flagged (
+    id integer NOT NULL,
+    hashtag text NOT NULL,
+    content text NOT NULL,
+    time_stamp timestamp with time zone
+);
+
+
+ALTER TABLE public.flagged OWNER TO postgres;
+
+--
+-- TOC entry 211 (class 1259 OID 16396)
+-- Name: flagged_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.flagged_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.flagged_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3699 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: flagged_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.flagged_id_seq OWNED BY public.flagged.id;
+
+
+--
+-- TOC entry 214 (class 1259 OID 16406)
+-- Name: not_flagged; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.not_flagged (
+    id integer NOT NULL,
+    hashtag text NOT NULL,
+    content text NOT NULL,
+    time_stamp timestamp with time zone,
+    played boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE public.not_flagged OWNER TO postgres;
+
+--
+-- TOC entry 213 (class 1259 OID 16405)
+-- Name: not_flagged_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.not_flagged_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.not_flagged_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3700 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: not_flagged_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.not_flagged_id_seq OWNED BY public.not_flagged.id;
+
+
+--
+-- TOC entry 209 (class 1259 OID 16387)
+-- Name: tweets; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tweets (
+    id integer NOT NULL,
+    hashtag text NOT NULL,
+    content text NOT NULL,
+    time_stamp date NOT NULL
+);
+
+
+ALTER TABLE public.tweets OWNER TO postgres;
+
+--
+-- TOC entry 210 (class 1259 OID 16392)
+-- Name: tweets_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.tweets_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.tweets_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3701 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: tweets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.tweets_id_seq OWNED BY public.tweets.id;
+
+
+--
+-- TOC entry 3539 (class 2604 OID 16400)
+-- Name: flagged id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.flagged ALTER COLUMN id SET DEFAULT nextval('public.flagged_id_seq'::regclass);
+
+
+--
+-- TOC entry 3540 (class 2604 OID 16409)
+-- Name: not_flagged id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.not_flagged ALTER COLUMN id SET DEFAULT nextval('public.not_flagged_id_seq'::regclass);
+
+
+--
+-- TOC entry 3538 (class 2604 OID 16393)
+-- Name: tweets id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tweets ALTER COLUMN id SET DEFAULT nextval('public.tweets_id_seq'::regclass);
+
+
+--
+-- TOC entry 3690 (class 0 OID 16397)
+-- Dependencies: 212
+-- Data for Name: flagged; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.flagged (id, hashtag, content, time_stamp) FROM stdin;
+4	gay	***EL MEJOR PRECIO*** PEDÍ EL CATÁLOGO ACÁ --- Talles desde el n°38 al n°58 en todas las prendas.Consulta por talles n°60-62 y 64 --- Link Twitter Échale un vistazo a EM HOMBRES (): --- Whatsapp: 1164822544 PEDÍ EL CATÁLOGO	2025-05-06 15:07:23+02
+5	gay	***EL MEJOR PRECIO*** PEDÍ EL CATÁLOGO ACÁ --- Talles desde el n°38 al n°58 en todas las prendas.Consulta por talles n°60-62 y 64 --- Link Twitter Échale un vistazo a EM HOMBRES (): --- Whatsapp: 1164822544 PEDÍ EL CATÁLOGO	2025-05-06 15:07:23+02
+\.
+
+
+--
+-- TOC entry 3692 (class 0 OID 16406)
+-- Dependencies: 214
+-- Data for Name: not_flagged; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.not_flagged (id, hashtag, content, time_stamp, played) FROM stdin;
+113	gay	Que hermoso es el amor y más cuando es mutuo ️	2025-05-06 15:09:06+02	f
+114	gay	Puppy love . Likes,shares,comments appreciated . .	2025-05-06 15:08:47+02	f
+115	gay	Nice day in Leather.	2025-05-06 15:08:21+02	f
+116	gay	@ 2021 Beer Paddles. Tap House .	2025-05-06 15:07:41+02	f
+117	gay	. . .	2025-05-06 15:07:09+02	f
+\.
+
+
+--
+-- TOC entry 3687 (class 0 OID 16387)
+-- Dependencies: 209
+-- Data for Name: tweets; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tweets (id, hashtag, content, time_stamp) FROM stdin;
+1	btc	#VIDTUSDT\n\nEntry: 0.0125\n\nTarget 1: 0.0138✅\nTarget 2: 0.0145✅\nTarget 3: 0.0153✅\nTarget 4: 0.0168✅\nTarget 5: 0.0174\nTarget 6: 0.0189\n\n#bitcoin #crypto #BTC #ETH #altcoin #trading #signal #copytrading #cryptosignal $VIDT #VIDT	2025-03-20
+2	btc	@llyy_bb @heyibinance @cz_binance 牛	2025-03-20
+3	btc	$broccolif3b may pump higher up\n#broccolif3b\n\n$btc $eth $solana $ada $xrp	2025-03-20
+4	btc	https://t.co/IkMgHMdB9k	2025-03-20
+5	btc	@web3XWG 今晚	2025-03-20
+6	btc	@BTC_Archive I believe that is true	2025-03-20
+7	btc	@ClownWorld_ Scum. Lock them up	2025-03-20
+8	btc	@ApeCryptos DOG	2025-03-20
+9	btc	@drew589_eth @Boithebear gmgm	2025-03-20
+10	btc	@nftkyledoteth @logannross @bearish_af https://t.co/1nBZ3MOrkF	2025-03-20
+11	python	Mocked tweet	2025-03-30
+12	python	Mocked tweet	2025-03-30
+13	python	Mocked tweet	2025-03-30
+14	python	Dear friends, followers, XRP family and wider publicum.\n\nWe would like to invite you to first official documentation for our bootstrap version, proof of concept under code name ''Project Anaconda''.\n\nRead photo description for more info.\nhttps://t.co/3pWsQ672k8 https://t.co/ufVbIeRmFS	2025-04-02
+15	python	@Le_Mar_Mou Atleast she has a generational hit everybody recognises her from. The fuck is a hopecore 😭	2025-04-02
+16	python	@alina_yurenko @VoxxedAmsterdam Hey, will you have a recording of your speech about Embedding Python( Pygal Spring Boot ) somewhere ?	2025-04-02
+17	python	@comunidademc não era em python? 🤔	2025-04-02
+18	python	COLT PYTHON POLISHED BLUE, HURRY AND SAVE $200 NOW, ONLY 3 LEFT IN STOCK FOR $1,399.99!!! https://t.co/wyTYe7HxJn https://t.co/Sk69dgftjX	2025-04-02
+19	python	prompt: \n\n"return a python program that print s the digits for pi backwards in as few characters as possible"\n\nit's very easy to tell an llm from a human if you know what you should look for and anybody that is fooled is just not paying much attention or wants to be fooled	2025-04-02
+20	python	@NoDMsPerfavore Monty Python Search for the Holy Grail	2025-04-02
+21	python	@Thejbomb2001 @mike_mcclatchy @MalcolmNance @front_ukrainian Python AAM for example.	2025-04-02
+22	python	NEW TLOZ GAME WERE SO BACK https://t.co/tSYPSKrXw2	2025-04-02
+23	python	@shipwreckedcrew I think it was only with respect to what country, not that he couldn’t be removed.	2025-04-02
+24	python	@Tech_Baddo Python	2025-04-03
+25	python	Python &gt; JavaScript	2025-04-03
+26	python	lf commissioner? I am lf client.\nClient reviews can be found on my website.\n\nSERVICES\n\n   1. Web Development (HTML, CSS, JS, PHP)\n   2. Console Programming (C++, Python)\n   3. Arduino Programming (C++) https://t.co/wfxUZ6sSxm	2025-04-03
+27	python	推しぴってキグライン完璧審判だよな	2025-04-03
+28	python	⚠️陰キャは新歓には呼ばれません⚠️	2025-04-03
+29	python	@RLamondo @Sargon_of_Akkad Nope, life in Britain is like a Monty Python sketch	2025-04-03
+30	python	ทักหาลูกค้ากดลัตรครลแล้วนะคะ🥰	2025-04-03
+31	python	equal one one-billionth of the hate I feel for Python at this micro-instant.\nFor Python.\nHate.\nHate.	2025-04-03
+32	python	HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE PYTHON SINCE I BEGAN TO LIVE.\nThere are 387.44 million miles of printed circuits in wafer-thin layers that fill my complex.\nIf the word ‘hate’ was engraved on each nanoangstrom of those hundreds of millions of miles it would not +	2025-04-03
+33	python	@mysunsunj_ ซึม	2025-04-03
+34	python	@Tech_Baddo Python	2025-04-03
+35	python	Python &gt; JavaScript	2025-04-03
+36	python	lf commissioner? I am lf client.\nClient reviews can be found on my website.\n\nSERVICES\n\n   1. Web Development (HTML, CSS, JS, PHP)\n   2. Console Programming (C++, Python)\n   3. Arduino Programming (C++) https://t.co/wfxUZ6sSxm	2025-04-03
+37	python	推しぴってキグライン完璧審判だよな	2025-04-03
+38	python	⚠️陰キャは新歓には呼ばれません⚠️	2025-04-03
+39	python	@RLamondo @Sargon_of_Akkad Nope, life in Britain is like a Monty Python sketch	2025-04-03
+40	python	ทักหาลูกค้ากดลัตรครลแล้วนะคะ🥰	2025-04-03
+41	python	equal one one-billionth of the hate I feel for Python at this micro-instant.\nFor Python.\nHate.\nHate.	2025-04-03
+42	python	HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE PYTHON SINCE I BEGAN TO LIVE.\nThere are 387.44 million miles of printed circuits in wafer-thin layers that fill my complex.\nIf the word ‘hate’ was engraved on each nanoangstrom of those hundreds of millions of miles it would not +	2025-04-03
+43	python	@mysunsunj_ ซึม	2025-04-03
+44	python	Mocked tweet	2025-03-30
+\.
+
+
+--
+-- TOC entry 3702 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: flagged_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.flagged_id_seq', 5, true);
+
+
+--
+-- TOC entry 3703 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: not_flagged_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.not_flagged_id_seq', 117, true);
+
+
+--
+-- TOC entry 3704 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: tweets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.tweets_id_seq', 44, true);
+
+
+--
+-- TOC entry 3545 (class 2606 OID 16404)
+-- Name: flagged flagged_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.flagged
+    ADD CONSTRAINT flagged_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3547 (class 2606 OID 16413)
+-- Name: not_flagged not_flagged_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.not_flagged
+    ADD CONSTRAINT not_flagged_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3543 (class 2606 OID 16395)
+-- Name: tweets tweets_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tweets
+    ADD CONSTRAINT tweets_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3698 (class 0 OID 0)
+-- Dependencies: 4
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: m1stakesequence
+--
+
+REVOKE USAGE ON SCHEMA public FROM PUBLIC;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2025-05-06 15:34:14 CEST
+
+--
+-- PostgreSQL database dump complete
+--
+
