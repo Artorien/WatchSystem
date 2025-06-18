@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WatchHumans Captions Overview</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>WATCHHUMANS CAPTIONS OVERVIEW</h1>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="top-controls">
+        <button class="nav-button" onclick="location.href='index.html'">
+          Back to Control Center
+        </button>
+        <div class="search-sort-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by hashtag…"
+            class="search-input"
+          />
+          <button id="searchBtn" class="input-button">Search</button>
+
+          <label for="sortOrder" class="section-heading">Sort by Date</label>
+          <select id="sortOrder" class="select-control">
+            <option value="asc">Ascending</option>
+            <option value="desc" selected>Descending</option>
+          </select>
+        </div>
+      </div>
+
+      <table id="captionsTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Hashtag</th>
+            <th>Caption</th>
+            <th>Date</th>
+            <th class="actions-column">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows populated by captionsScript.js -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="captionsScript.js"></script>
+</body>
+</html>

@@ -15,27 +15,55 @@
 
   <main>
     <div class="control-grid">
-      <div class="platform-selection">
-        <h3 class="section-heading">Select Platform</h3>
-        <div class="platform-options indented-options">
-          <label class="platform-checkbox"><input type="checkbox" name="platform" value="instagram" checked><i class="fab fa-instagram"></i> Instagram</label>
-          <label class="platform-checkbox"><input type="checkbox" name="platform" value="facebook" checked><i class="fab fa-facebook"></i> Facebook</label>
-          <label class="platform-checkbox"><input type="checkbox" name="platform" value="x" checked><i class="fab fa-twitter"></i> X</label>
+
+      <div class="left-controls">
+        <div class="filter-toggle">
+          <h3 class="section-heading">Filtering</h3>
+          <div class="toggle-control">
+            <span>Off</span>
+            <label class="switch">
+              <input type="checkbox" id="filteringToggle" checked />
+              <span class="slider round"></span>
+            </label>
+            <span>On</span>
+          </div>
+        </div>
+
+        <div class="platform-selection">
+          <h3 class="section-heading">Select Platform</h3>
+          <div class="platform-options indented-options">
+            <label class="platform-checkbox">
+              <input type="checkbox" id="instagram" name="platform" value="instagram" checked>
+              <i class="fab fa-instagram"></i> Instagram
+            </label>
+            <label class="platform-checkbox">
+              <input type="checkbox" id="facebook" name="platform" value="facebook" checked>
+              <i class="fab fa-facebook"></i> Facebook
+            </label>
+            <label class="platform-checkbox">
+              <input type="checkbox" id="twitter" name="platform" value="twitter" checked>
+              <i class="fab fa-twitter"></i> X
+            </label>
+          </div>
         </div>
       </div>
 
-      <div class="power-toggle">
-        <div class="toggle-control">
-          <span>Off</span>
-          <label class="switch">
-            <input type="checkbox" id="powerToggle" />
-            <span class="slider round"></span>
-          </label>
-          <span>On</span>
+      <div class="right-controls">
+        <div class="power-toggle">
+          <h3 class="section-heading">Scraping</h3>
+          <div class="toggle-control">
+            <span>Off</span>
+            <label class="switch">
+              <input type="checkbox" id="powerToggle" />
+              <span class="slider round"></span>
+            </label>
+            <span>On</span>
+          </div>
         </div>
         <div class="bottom-buttons">
-            <a href="hashtag-overview.html" class="nav-button">Hashtag Overview</a>
-            <a href="captions-overview.html" class="nav-button">Captions Overview</a>
+          <a href="hashtags.html" class="nav-button">Hashtag Overview</a>
+          <a href="dbView.html" class="nav-button">Flagged Captions Overview</a>
+          <a href="captions.html" class="nav-button">Captions Overview</a>
         </div>
       </div>
     </div>
@@ -50,7 +78,7 @@
     <div class="input-fields">
       <div class="input-group">
         <label for="hashtags" class="section-heading">Set new Hashtags</label>
-        <textarea id="hashtags" placeholder="Enter hashtags here. E.g. art, exhibit, commentary"></textarea>
+        <textarea id="hashtags" placeholder="Enter hashtags here. E.g. art, exhibit, commentary. Hashtags cannot contain spaces"></textarea>
         <button onclick="sendHashtags()" class="input-button">Submit</button>
       </div>
       <div class="input-group">
@@ -61,6 +89,6 @@
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script src="indexScript.js"></script>
 </body>
 </html>
